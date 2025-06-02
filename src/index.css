@@ -1,0 +1,75 @@
+@import  url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-xl shadow-card transition-all duration-300 hover:shadow-card-hover;
+  }
+
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 focus:ring-primary-500;
+  }
+
+  .input {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500;
+  }
+
+  /* Loading spinner */
+  .loader {
+    @apply w-12 h-12 border-4 border-primary-200 rounded-full;
+    border-top-color: theme('colors.primary.600');
+    animation: spin 1s linear infinite;
+  }
+
+  /* QR code container animation */
+  .qr-container {
+    animation: pulse 2s infinite;
+  }
+
+  /* Highlight effect for color inputs */
+  input[type="color"] {
+    @apply cursor-pointer transition-transform hover:scale-105;
+  }
+
+  /* Enhanced focus states */
+  button:focus, input:focus, select:focus, textarea:focus {
+    @apply outline-none ring-2 ring-primary-500 ring-opacity-50;
+  }
+  
+  /* Custom checkbox styles */
+  input[type="checkbox"] {
+    @apply rounded text-primary-600 focus:ring-primary-500;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(13, 142, 223, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 0 15px rgba(13, 142, 223, 0);
+  }
+}
+ 
